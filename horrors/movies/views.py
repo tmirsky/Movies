@@ -9,17 +9,25 @@ class ContextMixin:
     context = {
         'facebook': 'https://facebook.com',
         'twitter': 'https://twitter.com',
-        'gmail': 'https://gmail.com',
+        'googleplus': 'https://gmail.com',
+        'youtube': 'https://youtube.com',
     }
 
 
-class MoviesView(ListView):
+class MoviesView(ContextMixin,ListView):
     #Список фильмов
     model = Movie
-    paginate_by = 1
+    template_name = 'movies/index.html'
+    context_object_name = 'movies'
 
     def get_queryset(self):
-        return Movie.objects.filter(is_published=False)
+        return Movie.objects.filter(is_published=True)
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(MoviesView, self).get_context_data(**kwargs)
+        context.update(self.context)
+        context['user'] = self.request.user
+        return context
 
 
 class MovieDetailView(DetailView):
@@ -28,7 +36,7 @@ class MovieDetailView(DetailView):
     slug_field = 'url'
 
     def get_queryset(self):
-        return Movie.objects.filter(is_published=False)
+        return Movie.objects.filter(is_published=True)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -51,7 +59,6 @@ class DirectorView(DetailView):
 
 class Search(ListView):
     # Поиск фильмов
-    paginate_by = 3
 
     def get_queryset(self):
         return Movie.objects.filter(title__icontains=self.request.GET.get("q"))
@@ -60,3 +67,18 @@ class Search(ListView):
         context = super().get_context_data(*args, **kwargs)
         context["q"] = f'q={self.request.GET.get("q")}&'
         return context
+
+
+class AddReview(View):
+    #Отзывы
+
+    def post(self, request, pk):
+        form = ReviewForm(request.POST)
+        movie = Movie.objects.get(id=pk)
+        if form.is_valid():
+            form = form.save(commit=False)
+            if request.POST.get("parent", None):
+                form.parent_id = int(request.POST.get("parent"))
+            form.movie = movie
+            form.save()
+        return redirect(movie.get_absolute_url())

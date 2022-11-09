@@ -180,3 +180,18 @@ class Movie(models.Model):
         verbose_name = 'Фильм'
         verbose_name_plural = 'Фильмы'
         ordering = ['title', '-year']
+
+
+class Reviews(models.Model):
+    # Отзывы
+    name = models.CharField('Имя', max_length=100)
+    email = models.EmailField()
+    text = models.TextField('Сообщение', max_length=5000)
+    movie = models.ForeignKey(Movie, verbose_name='фильм', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.name} - {self.movie}'
+
+    class Meta:
+        verbose_name = 'Отзыв'
+        verbose_name_plural = 'Отзывы'
