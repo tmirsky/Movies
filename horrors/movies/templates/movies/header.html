@@ -1,0 +1,116 @@
+{% load static %}
+
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7 no-js" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8 no-js" lang="en-US">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en" class="no-js">
+
+
+<head>
+	<!-- Basic need -->
+	<title>Open Pediatrics</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="">
+	<link rel="profile" href="#">
+
+    <!--Google Font-->
+    <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
+	<!-- Mobile specific meta -->
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone-no">
+	<!-- CSS files -->
+	<link rel="stylesheet" href="{% static 'css/plugins.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+
+<!--preloading-->
+<div id="preloader">
+<!--	<img class="logo" src="{% static 'images/horror-p.gif' %}" alt="" width="366" height="136">-->
+    <div id="status">
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<!--end of preloading-->
+
+
+<!-- BEGIN | Header -->
+<header class="ht-header">
+	<div class="container">
+		<nav class="navbar navbar-default navbar-custom">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header logo">
+				    <div class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					    <span class="sr-only">Toggle navigation</span>
+					    <div id="nav-icon1">
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+				    </div>
+				    <a href="#"><img class="logo" src="{% static 'images/horror-p.png' %}" alt="" width="119" height="58"></a>
+			    </div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse flex-parent" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav flex-child-menu menu-left">
+						<li class="hidden">
+							<a href="#page-top"></a>
+						</li>
+						<li class="dropdown first">
+							<a class="btn btn-default dropdown-toggle lv1" href="{% url 'index' %}" data-toggle="dropdown" data-hover="dropdown">
+							Home </a>
+						</li>
+
+						<li>
+							<a class="btn btn-default dropdown-toggle lv1" href="{% url 'movie_list' %}" data-toggle="dropdown" data-hover="dropdown">
+								movies
+							</a>
+						</li>
+
+						<li class="dropdown first">
+							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+							celebrities
+							</a>
+						</li>
+
+						<li class="dropdown first">
+							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+							community
+							</a>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav flex-child-menu menu-right">
+						<li class="dropdown first">
+
+						<li><a href="#">Help</a></li>
+						{% if not user.is_authenticated %}
+						<li><a href="{% url 'signin' %}">Sign In</a></li>
+						{% endif %}
+						{% if user.is_authenticated %}
+						<li"><a href="{% url 'logout' %}">Log out</a></li>
+						{% endif %}
+					</ul>
+				</div>
+			<!-- /.navbar-collapse -->
+	    </nav>
+
+	    <!-- top search form -->
+	    <div class="top-search">
+	    	<select>
+				<option value="united">Horror</option>
+				<option value="saab">Others</option>
+			</select>
+			<input type="text" placeholder="Hoc non debes facere...">
+	    </div>
+	</div>
+</header>
+<!-- END | Header -->
