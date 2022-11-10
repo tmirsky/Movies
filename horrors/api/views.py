@@ -9,8 +9,8 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 
-from .serializers import ReviewSerializer
-from ..movies.models import Reviews
+# from .serializers import ReviewSerializer
+# from ..movies.models import Reviews
 
 
 class ExpiredTokenAuthentication(TokenAuthentication):
@@ -23,11 +23,11 @@ class ExpiredTokenAuthentication(TokenAuthentication):
         return user, token
 
 
-class ReviewView(ModelViewSet):
-    queryset = Reviews.objects.filter()
-    serializer_class = ReviewSerializer
-    authentication_classes = [ExpiredTokenAuthentication]
-    permission_classes = [IsAuthenticatedOrReadOnly]
+# class ReviewView(ModelViewSet):
+#     queryset = Reviews.objects.filter()
+#     serializer_class = ReviewSerializer
+#     authentication_classes = [ExpiredTokenAuthentication]
+#     permission_classes = [IsAuthenticatedOrReadOnly]
 
 
 class ExpiredObtainAuthToken(ObtainAuthToken):
