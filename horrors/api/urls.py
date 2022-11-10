@@ -1,7 +1,14 @@
-from django.urls import path
+from django.urls import path, include
+from rest_framework.routers import SimpleRouter
 
-from .views import expired_obtain_auth_token
+from .views import ReviewView, expired_obtain_auth_token
 
-urlpatterns =[
-    path('auth/', expired_obtain_auth_token, name='api-auth')
+
+router = SimpleRouter()
+router.register(r'posts', ReviewView)
+
+
+urlpatterns = [
+    path('', include(router.urls)),
+    path('auth/', expired_obtain_auth_token)
 ]

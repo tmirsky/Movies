@@ -1,6 +1,9 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import redirect
 from django.views.generic import ListView, DetailView
 from django.views.generic.base import View
 
+from .forms import ReviewForm
 from .models import Movie, Actor, Director
 
 
@@ -85,7 +88,7 @@ class Search(ListView):
         return context
 
 
-class AddReview(View):
+class AddReview(LoginRequiredMixin, View):
     #Отзывы
 
     def post(self, request, pk):
