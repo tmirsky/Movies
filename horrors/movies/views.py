@@ -36,8 +36,8 @@ class MoviesView(ContextMixin,ListView):
 class MoviesListView(ContextMixin, ListView):
     #Список фильмов
     model = Movie
-    template_name = 'movies/movies_list.html'
-    context_object_name = '/movies'
+    template_name = 'movies/movie_list.html'
+    context_object_name = 'movies'
 
     def get_queryset(self):
         return Movie.objects.filter(is_published=True)

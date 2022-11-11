@@ -2,39 +2,36 @@
 {% load static %}
 {% load i18n %}
 
+{% include 'movies/header.html' %}
 
-<!--<div class="hero common-hero">-->
-<!--	<div class="container">-->
-<!--		<div class="row">-->
-<!--			<div class="col-md-12">-->
-<!--				<div class="hero-ct">-->
-<!--					<h1> movie listing - list</h1>-->
-<!--					<ul class="breadcumb">-->
-<!--						<li class="active"><a href="{% url 'index' %}">Home</a></li>-->
-<!--						<li> <span class="ion-ios-arrow-right"></span> movie listing</li>-->
-<!--					</ul>-->
-<!--				</div>-->
-<!--			</div>-->
-<!--		</div>-->
-<!--	</div>-->
-<!--</div>-->
 {% block movie %}
 <div class="page-single movie_list">
 	<div class="container">
 		<div class="row ipad-width2">
-			{% for movie in movies %}
+
 			<div class="col-md-8 col-sm-12 col-xs-12">
+				{% for movie in movies %}
 				<div class="movie-item-style-2">
 					<img src="{{ movie.poster.url }}" alt="">
 					<div class="mv-item-infor">
 						<h6><a href="{ movie.get_absolute_url }">{{ movie.title }}<span> </a></h6>
 						<p class="rate"><i class="ion-android-star"></i><span>{{ movie.rating }}</span> /10</p>
 						<p class="describe">{{ movie.tagline }}</p>
-						<p class="run-time"> Run Time: {{ movie.duration }} minutes. Release: {{ movie.year }}</p>
-						<p> Director: <a href="#">{{ movie.directors }}</a></p>
-						<p> Stars: <a href="#"> {{ movie.actors }} </a></p>
+						<p class="run-time"> Run Time: {{ movie.duration }} минут.</p>
+						<p class="run-time"> Release: {{ movie.year }}.</p>
+						<p> Director: {% for director in movie.directors.all %}
+						<a href="#"> {{ director.name }}</a>{% endfor %}</p>
+
+
+
+
+						<p> Stars: {% for actor in movie.actors.all %}
+						<a href="#">  {{ actor.name }} </a>{% endfor %}</p>
+
+
 					</div>
 				</div>
+				{% endfor %}
 				<div class="topbar-filter">
 					<label>Movies per page:</label>
 					<select>
@@ -49,7 +46,7 @@
 					</div>
 				</div>
 			</div>
-			{% endfor %}
+
 		</div>
 	</div>
 </div>
