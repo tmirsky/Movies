@@ -18,7 +18,7 @@
 <!--		</div>-->
 <!--	</div>-->
 <!--</div>-->
-{% block content %}
+{% block movie %}
 <div class="page-single movie_list">
 	<div class="container">
 		<div class="row ipad-width2">
@@ -27,10 +27,10 @@
 				<div class="movie-item-style-2">
 					<img src="{{ movie.poster.url }}" alt="">
 					<div class="mv-item-infor">
-						<h6><a href="#">{{ movie.title }}<span> </a></h6>
+						<h6><a href="{ movie.get_absolute_url }">{{ movie.title }}<span> </a></h6>
 						<p class="rate"><i class="ion-android-star"></i><span>{{ movie.rating }}</span> /10</p>
 						<p class="describe">{{ movie.tagline }}</p>
-						<p class="run-time"> Run Time: {{ movie.duration }} minutes.тRelease: {{ movie.year }}</p>
+						<p class="run-time"> Run Time: {{ movie.duration }} minutes. Release: {{ movie.year }}</p>
 						<p> Director: <a href="#">{{ movie.directors }}</a></p>
 						<p> Stars: <a href="#"> {{ movie.actors }} </a></p>
 					</div>
@@ -54,4 +54,4 @@
 	</div>
 </div>
 
-{% endblock %}
+{% endblock movie %}

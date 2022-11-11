@@ -4844,7 +4844,7 @@ ul {
   margin-left: -15px;
 }
 .trailers {
-  background-color: #06121e;
+  background-color: #383536;
   padding: 70px 0;
 }
 .trailers .trailer-img {
@@ -4899,7 +4899,7 @@ ul {
   width: 35%;
   height: 435px;
   padding: 30px 0;
-  background-color: #0b1a2a;
+  background-color: #222222;
   position: relative;
 }
 @media (max-width: 991px) {
@@ -4950,7 +4950,7 @@ ul {
   margin-left: 15px;
 }
 .trailers .videos .thumb-ft .slick-track .slick-current {
-  background-color: #1c3d5d;
+  background-color: #dd003f;
 }
 @media (max-width: 991px) {
   .trailers .videos {
@@ -5103,7 +5103,7 @@ ul {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  background-color: #233a50;
+  background-color: #383536;
 }
 .sidebar .sb-cate ul li {
   margin-bottom: 15px;
@@ -5794,7 +5794,7 @@ ul {
   font-size: 16px;
 }
 .user-information {
-  border: 3px solid #0f2133;
+  border: 3px solid #dd003f;
   margin-right: 30px;
   margin-top: -200px;
   background-color: #020d18;
@@ -5841,7 +5841,7 @@ ul {
   color: #dcf836;
 }
 .user-information .user-fav {
-  border-top: 1px solid #0f2133;
+  border-top: 1px solid #dd003f;
   padding: 25px 0;
 }
 .user-information .user-fav p {
@@ -6390,7 +6390,7 @@ ul {
 .form-style-1 {
   margin-bottom: 60px;
   background-color: #0b1a2a;
-  border: 3px solid #0f2133;
+  border: 3px solid #dd003f;
   padding: 15px;
 }
 .form-style-1 .form-it {
@@ -6526,7 +6526,7 @@ ul {
 }
 .user-pro .user {
   padding-bottom: 30px;
-  border-bottom: 1px solid #0f2133;
+  border-bottom: 1px solid #dd003f;
 }
 .user-pro .password {
   padding-top: 30px;
@@ -7798,7 +7798,7 @@ header {
 }
 @media (max-width: 991px) {
   header {
-    background-color: #0f2133;
+    background-color: #dd003f;
   }
 }
 header .navbar-default {
@@ -8031,7 +8031,7 @@ header#headerv3-light {
   background-color: #020d18;
 }
 .sticky {
-  background-color: #0f2133;
+  background-color: #dd003f;
   position: fixed;
   width: 100%;
   z-index: 9999;
@@ -8114,7 +8114,7 @@ header#headerv3-light {
     padding: 10px 15px;
   }
   header .navbar-default .navbar-nav .dropdown.first.open .dropdown-menu li:hover {
-    background-color: #0f2133;
+    background-color: #dd003f;
   }
   header .navbar-default .navbar-nav .dropdown.first.open .dropdown-menu li:hover a {
     color: #dcf836;
